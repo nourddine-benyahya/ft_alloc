@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:54 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 11:14:23 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:01:01 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-enum					e_address_state
+enum					e_alloc_mode
 {
 	MALLOC,
 	CALLOC,

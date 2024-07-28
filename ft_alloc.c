@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:38 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 11:17:14 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:02:06 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	*clear_address(t_address **lst)
 {
 	t_address	*tmp;
 
+    if (!lst || !*lst)
+        return (NULL);
 	while (*lst)
 	{
 		tmp = *lst;
@@ -105,7 +107,7 @@ void	*ft_alloc(size_t size, void *ptr, char c)
 		return (ft_malloc(size, &address_list));
 	else if (c == CALLOC)
 		return (ft_calloc(size, &address_list));
-	else if (c == FREE_ALL)
+	else if (c == FREE_PTR)
 		return (ft_free(ptr, &address_list));
 	else if (c == FREE_ALL)
 		return (clear_address(&address_list));
