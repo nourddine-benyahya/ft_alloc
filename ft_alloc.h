@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:54 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 10:24:35 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 11:14:23 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_address
 	struct s_address	*prev;
 }						t_address;
 
-void					*ft_alloc(size_t size, void *ptr,char c);
+void					ft_alloc_add_back(t_address **lst, t_address *new_node);
+t_address				*ft_alloc_new_node(void *ptr, size_t size);
+void					*ft_alloc(size_t size, void *ptr, char c);
 
 #endif

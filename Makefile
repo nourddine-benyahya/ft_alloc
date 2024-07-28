@@ -1,4 +1,4 @@
-SRS = ft_alloc.c
+SRS = ft_alloc.c ft_alloc_util.c
 
 OBJS = $(SRS:.c=.o)
 
