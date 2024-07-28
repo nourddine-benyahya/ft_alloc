@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-%.o: %.c
+%.o: %.c ft_alloc.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
