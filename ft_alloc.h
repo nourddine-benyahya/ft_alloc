@@ -6,16 +6,18 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:54 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 09:55:24 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:06:27 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ALLOC_H
 # define FT_ALLOC_H
 
+# include <stddef.h>
+# include <stdlib.h>
 # include <unistd.h>
 
-enum					address_state
+enum					e_address_state
 {
 	MALLOC,
 	CALLOC,
