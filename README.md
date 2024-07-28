@@ -68,7 +68,7 @@ make the libarary
 
 ## Usage
 
-### testing Code Example
+### simple testing Code Example
 
 ```c
 #include "ft_alloc.h"
