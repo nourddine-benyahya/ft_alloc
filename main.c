@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 09:52:22 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 10:16:24 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 11:07:22 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@ void	leaks(void)
 	system("leaks a.out");
 }
 
-int	main(void)
+int	ft_main(void)
 {
 	atexit(leaks);
-	ft_alloc(sizeof(char *), MALLOC);
-	ft_alloc(sizeof(int *), CALLOC);
-	ft_alloc(sizeof(t_address *), MALLOC);
-	ft_alloc(0, FREE_ALL);
+	ft_alloc(sizeof(char *), NULL, MALLOC);
+	void *ptr = ft_alloc(sizeof(int *), NULL, CALLOC);
+	ft_alloc(sizeof(t_address *), ptr, FREE_PTR);
+	ft_alloc(0, NULL, FREE_ALL);
 	return (0);
+}
+int main()
+{
+    ft_main();
 }

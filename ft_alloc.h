@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:54 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 10:06:27 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:24:35 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ enum					e_address_state
 	CALLOC,
 	REALLOC,
 	FREE_ALL,
+	FREE_PTR,
 };
 
 typedef struct s_address
@@ -33,6 +34,6 @@ typedef struct s_address
 	struct s_address	*prev;
 }						t_address;
 
-void					*ft_alloc(size_t size, char c);
+void					*ft_alloc(size_t size, void *ptr,char c);
 
 #endif

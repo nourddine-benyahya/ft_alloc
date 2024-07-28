@@ -6,7 +6,7 @@
 /*   By: nbenyahy <nbenyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:28:38 by nbenyahy          #+#    #+#             */
-/*   Updated: 2024/07/28 10:16:06 by nbenyahy         ###   ########.fr       */
+/*   Updated: 2024/07/28 11:06:30 by nbenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,16 +104,48 @@ static void	*ft_calloc( size_t size, t_address **lst)
 	return (ptr);
 }
 
-void	*ft_alloc(size_t size, char c)
+void *ft_free(void *ptr, t_address **lst)
+{
+    t_address *current;
+    // t_address *next;
+    // t_address *prev;
+
+    if (!ptr || !lst || !*lst)
+        return (NULL);
+    current = *lst;
+    while (current)
+    {
+        if (ptr == current->address)
+        {
+            if (current->prev)
+                current->prev->next = current->next;
+            else
+                *lst = current->next;
+
+            if (current->next)
+                current->next->prev = current->prev;
+            free(current->address);
+            free(current);
+            return (NULL);
+        }
+        current = current->next;
+    }
+    return (NULL); 
+}
+
+
+void	*ft_alloc(size_t size, void *ptr,char c)
 {
 	static t_address	*address_list = NULL;
 
 	if (c == MALLOC)
 		return (ft_malloc(size, &address_list));
-	else if (c == FREE_ALL)
-		return (clear_address(&address_list));
     else if (c == CALLOC)
         return (ft_calloc(size, &address_list));
-        
+    else if (c == FREE_ALL)
+        return (ft_free(ptr, &address_list));
+	else if (c == FREE_ALL)
+		return (clear_address(&address_list));
+    
 	return (NULL);
 }
